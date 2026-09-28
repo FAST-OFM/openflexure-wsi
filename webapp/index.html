@@ -1,0 +1,154 @@
+<!--
+index.html
+The main HTML file for the OpenFlexure Microscope web application.
+Vite will use this file as a template to build the final HTML served to users.
+It's at root directory to allow Vite to process it.
+The previous version was located at public/index.html.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <link
+      rel="preload"
+      href="/src/assets/fonts/material-symbols-outlined.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <title>OpenFlexure Microscope</title>
+    <style>
+      /*
+       * This page is the "the app failed/is too slow to mount at all" fallback.
+       * It is NOT the normal loading screen - once Vue mounts (successfully or
+       * not) it overwrites this element's content, so under normal conditions
+       * this is never seen.
+       *
+       * Keep this page completely invisible for the first four seconds so it
+       * only appears if mounting is genuinely slow or has failed.
+       *
+       * There is no opacity animation here: after four seconds the page
+       * simply becomes visible at full opacity. This avoids a white/faded
+       * version of the page appearing before the fallback message.
+       */
+      .vue-app-placeholder {
+        visibility: hidden;
+        animation: vue-app-placeholder-show-loading 0s linear 4s forwards;
+
+        min-height: 100vh;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        font-family: "Open Sans", sans-serif;
+        color: #4b5563;
+        text-align: center;
+        overflow-y: auto;
+        scrollbar-gutter: stable;
+      }
+
+      /*
+       * Reveal the fallback page after the four-second delay.
+       */
+      @keyframes vue-app-placeholder-show-loading {
+        to {
+          visibility: visible;
+        }
+      }
+
+      .vue-app-placeholder .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .vue-app-placeholder .logo {
+        width: min(28rem, 70vw);
+        height: auto;
+        margin-bottom: 2rem;
+      }
+
+      .vue-app-placeholder .loading {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 1rem;
+        color: #6b7280;
+      }
+
+      .vue-app-placeholder .info {
+        max-width: 38rem;
+        margin-top: 4rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid #e5e7eb;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #9ca3af;
+      }
+
+      .vue-app-placeholder .info p {
+        margin: 0.35rem 0;
+      }
+
+      /*
+       * Respect users who prefer reduced motion.
+       * The loading page appears immediately rather than being delayed.
+       */
+      @media (prefers-reduced-motion: reduce) {
+        .vue-app-placeholder {
+          animation: none;
+          visibility: visible;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <noscript>
+      <strong>
+        This app requires JavaScript to run. Please enable JavaScript to continue.
+      </strong>
+    </noscript>
+
+    <div id="app">
+      <div class="vue-app-placeholder">
+        <div class="main">
+          <img
+            src="logo_colour_curves.svg"
+            class="logo"
+            alt="OpenFlexure"
+          />
+          <div class="loading">
+            <span>OpenFlexure Webapp has not loaded yet</span>
+          </div>
+        </div>
+
+        <div class="info">
+          <p>
+            If the web interface doesn't load, you may be using an outdated
+            version of OpenFlexure Connect or an old web browser.
+          </p>
+
+          <p>
+            Update OpenFlexure Connect from the main window using
+            <strong>Help &rarr; Check for Updates</strong>,
+            or check for the latest version at
+            https://openflexure.org.
+          </p>
+          <p>
+            For help with your microscope, visit the OpenFlexure Forum at
+            https://openflexure.discourse.group/.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

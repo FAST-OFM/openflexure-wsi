@@ -1,0 +1,272 @@
+# These templates do the following:
+# python.yml:
+# - creates a venv and installs dev dependencies
+# - configures git username and email for unit tests
+# - sets python jobs to only run when a .py file is edited
+# javascript.yml:
+# - performs npm install based on the provided image and path
+# - sets javascript jobs to only run when a .js or .vue
+#   file is edited
+include:
+  - project: 'openflexure/ci-templates'
+    file: '/python.yml'
+  - project: 'openflexure/ci-templates'
+    file: '/javascript.yml'
+
+# We are using this job to pass the image name, path,
+# and cache path to the javascript template job
+.javascript_webapp:
+  extends: .javascript
+  variables:
+    JS_IMAGE: node:26
+    JS_PATH: webapp
+    JS_CACHE_PATH: webapp/node_modules
+
+# Collects together common trigger rules for
+# reusability
+.rules_common:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_PIPELINE_SOURCE == "push"
+    - if: $CI_COMMIT_TAG
+    - if: $CI_PIPELINE_SOURCE == "web"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - when: never
+
+stages:
+  - prepare
+  - analysis
+  - testing
+  - build
+  - integration
+  - package
+  - deploy
+
+# Only runs when .meta/Dockerfile is edited
+meta-build-image:
+  image: docker:stable
+  services:
+    - docker:dind
+  stage: prepare
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - cd .meta-testimage-python
+    - docker build -t $CI_REGISTRY/openflexure/openflexure-microscope-server/testimage-python:latest .
+    - docker push $CI_REGISTRY/openflexure/openflexure-microscope-server/testimage-python:latest
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "v3"
+      changes:
+        - .meta/Dockerfile
+
+line-ending-check:
+  stage: analysis
+  extends: .rules_common
+  #use a base python image as it is ubuntu based and has bash, alpine is just sh
+  image: python:3.11
+  script:
+    # Throw an error if there are any windows line endings.
+    - '! git grep -Iq --perl-regexp "\r" HEAD'
+
+# Check webapp and server have matching version string
+version-check:
+  stage: analysis
+  extends: .rules_common
+  #use a base python image as nothing needs to be installed
+  image: python:3.11
+  script:
+    - ./check_version_sync.py
+
+# A job to protect reviewers from Julian's terrible spelling.
+spelling:
+  stage: analysis
+  extends:
+    - .python
+    # Extending this job means that the rules section defined
+    # in .rules_common overwrites any rules defined in .python
+    - .rules_common
+  script:
+    # Run with our standard regex, best for normal text and snake-case
+    - codespell .
+    # Run again with a second regex that finds issues in camelCase, PascalCase and kebab-case
+    - codespell --config .codespellrc2 .
+
+# Python static analysis and formatting with ruff
+# Only runs when a .py file is edited
+ruff-checks:
+  stage: analysis
+  extends: .python
+  script:
+    - ruff check
+    - ruff format --check
+  # Only run on changed python files
+
+# Python type checking with Mypy
+# Only runs when a .py file is edited
+mypy:
+  stage: analysis
+  extends: .python
+  script:
+    - mkdir -p mypy
+    - mypy src --cobertura-xml-report mypy --no-error-summary > mypy-out.txt
+  after_script:
+    # Installed here rather than with [dev] as the after_script runs in a new shell
+    - pip install mypy-gitlab-code-quality
+    - mypy-gitlab-code-quality < mypy-out.txt > codequality.json
+    - cat mypy-out.txt
+
+  artifacts:
+    when: always
+    reports:
+      codequality: codequality.json
+      coverage_report: 
+        coverage_format: cobertura
+        path: mypy/cobertura.xml
+
+# Python unit tests with PyTest
+# Only runs when a .py file is edited
+pytest:
+  stage: testing
+  extends: .python
+  script:
+    - pytest
+    - mv .coverage .coverage.main
+  artifacts:
+    when: always
+    paths:
+      - report.xml
+      - .coverage.main
+
+# Combine CI coverage with coverage from Picamera
+# Only runs when a .py file is edited
+combined-tests:
+  stage: testing
+  extends: .python
+  needs:
+    - job: pytest
+      artifacts: true
+  script:
+    - ./picamera_tests.py unzip
+    - coverage combine
+    # Use -i to ignore file changing between the two runs. We check the relevant ones.
+    - coverage report -i
+    - coverage xml -i
+  coverage: '/(?i)total.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage.xml
+
+# JavaScript linting and testing
+# ESLint, StyleLint and ViTest
+# Only runs when a .js or .vue file is edited
+javascript-lint-and-test:
+  stage: testing
+  extends: .javascript_webapp
+  script:
+    - npm run lint
+    - npm run lint:style
+    # The test runs only if a test spec file has changed
+    - npm run test:unit
+
+# Build JS app
+build:
+  stage: build
+  extends:
+    - .javascript_webapp
+    - .rules_common
+  script:
+    # Build JS application for production
+    - npm run build
+    # Generate the webapp documentation
+    - npm run build:docs
+  artifacts:
+    name: "dist"
+    expire_in: 1 week
+    paths:
+      - "src/openflexure_microscope_server/static/"
+      # Documentation output
+      - "apidocs"
+
+# Only runs when a .py file is edited unless the commit branch is V3
+build-docs:
+  extends:
+   - .python
+   # Always build docs
+   - .rules_common
+  stage: build
+  script:
+    - |
+      pydoctor -W \
+      --docformat  restructuredtext \
+      --html-output apidocs/python \
+      --project-name "OpenFlexure Microscope Server" \
+      --project-version $CI_COMMIT_REF_NAME \
+      --theme readthedocs \
+      --html-viewsource-base https://gitlab.com/openflexure/openflexure-microscope-server/-/tree/$CI_COMMIT_SHA/ \
+      src/openflexure_microscope_server
+    - ./generate_http_api_data.py
+    - echo "JOB_ID=$CI_JOB_ID" > build-docs.env
+  artifacts:
+    expire_in: 1 week
+    name: "${CI_PROJECT_NAME}-${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}-${CI_COMMIT_SHORT_SHA}-docs"
+    paths:
+      - apidocs
+
+# Merges client and server docs for the Developer Documentation.
+merge-docs:
+  stage: integration
+  extends: .rules_common
+  image: alpine:latest
+  needs:
+    - job: build
+      artifacts: true
+    - job: build-docs
+      artifacts: true
+  script:
+    - echo "Merging docs..." 
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - apidocs
+  environment:
+    name: review/$CI_COMMIT_REF_SLUG
+    url: https://$CI_PROJECT_ROOT_NAMESPACE.gitlab.io/-/openflexure-microscope-server/-/jobs/$CI_JOB_ID/artifacts/apidocs/index.html
+
+# Only runs when a .py file is edited
+server_lifecycle_test:
+  extends: .python
+  stage: integration
+  needs:
+    - job: build
+      artifacts: true
+  script:
+    - tests/lifecycle_test/testfile.py
+
+# Pytest integration tests, seperate from the lifecycle test
+integration_tests:
+  stage: integration
+  extends: .python
+  script:
+    - pytest tests/integration_tests
+  # Don't report this coverage to in the Merge Request or combine with other
+  # coverage.
+
+
+pages:
+  needs:
+    - job: build-docs
+      artifacts: true
+    - job: build
+      artifacts: true
+  stage: deploy
+  image: "alpine:latest"
+  script:
+    - mv apidocs public
+  artifacts:
+      paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

@@ -1,0 +1,251 @@
+// UIkit Core MUST come before variables.less.
+// Less uses lazy evaluation: the LAST definition of a variable wins.
+@import "uikit/src/less/uikit.theme.less";
+
+// Custom OpenFlexure theming variables
+@import "./variables.less";
+
+// Highlight.js
+@import "./highlight.less";
+
+// Custom OpenFlexure theming
+
+//
+// Nav
+//
+
+.uk-nav-header{
+    text-transform:none;
+}
+
+/* UIkit modifiers
+ ========================================================================== */
+
+h4, .uk-h4 {
+    line-height: normal;
+    font-size: 20px;
+    margin: 0;
+}
+
+/*
+ * Navbar
+ */
+
+// Line Mode
+
+.uk-navbar-dropdown.uk-open {
+    border-radius: @paper-border-radius;
+}
+
+/*
+ * Cards
+ */
+
+.uk-card {
+    border-radius: @paper-border-radius;
+    box-shadow: @small-shadow;
+}
+
+.uk-card-title {
+    margin: 0;
+    width: 240px;
+}
+
+.uk-card-body {
+    padding: 20px 16px 8px;
+    width: 240px;
+}
+
+.uk-card-media-top img {
+    width: 240px;
+    margin: 0 auto;
+}
+
+/*
+ * Modal
+ */
+.uk-modal-dialog {
+    border-radius: @paper-border-radius;
+    box-shadow: @big-shadow;
+    transition: 0.3s ease !important;
+}
+
+.uk-modal-footer {
+    border-radius: 0 0 @paper-border-radius @paper-border-radius;
+}
+
+.uk-modal-footer button.uk-button {
+  vertical-align: baseline;
+}
+
+.uk-modal-header {
+    border-radius: @paper-border-radius @paper-border-radius 0 0;
+}
+
+/*
+ * Notifications
+ */
+.uk-notification-message {
+    border-radius: @paper-border-radius;
+    box-shadow: @big-shadow;
+    overflow-wrap: anywhere;
+}
+
+.uk-notification-message-danger {
+    border: 1px solid @notification-message-danger-color
+}
+
+.uk-notification-message-warning {
+    border: 1px solid @notification-message-warning-color
+}
+
+.uk-notification-message-success {
+    border: 1px solid @notification-message-success-color
+}
+
+
+/*
+ * Alert
+ */
+.uk-alert {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 15px 29px 15px 15px;
+    border-radius: @paper-border-radius;
+    border: 1px solid @global-border
+}
+
+.uk-alert-success{
+    color: rgba(28, 131, 45);
+    background-color: rgba(130, 221, 145, 0.671);
+}
+
+.uk-alert-danger {
+    border: 1px solid @notification-message-danger-color
+}
+
+.uk-alert-warning {
+    border: 1px solid @notification-message-warning-color
+}
+
+/*
+ * Links
+ */
+.uk-link,
+.uk-button-link {
+    color: @global-muted-color;
+}
+
+.uk-link:hover,
+.uk-button-link:hover,
+a:hover {
+    color: @global-primary-background;
+}
+
+/*
+ * Buttons
+ */
+.uk-button {
+    border-radius: @button-border-radius;
+    line-height: 14px;
+    padding: 12px 8px;
+    border-color: @global-border;
+    margin-bottom: 4px;
+    text-transform:none !important;
+
+    /* Prevent press-and-hold from selecting the button text */
+    user-select: none;
+
+    /* Prevent touch gestures from interfering with pointer events */
+    touch-action: none;
+}
+
+.uk-button-default {
+    background-color: rgba(180, 180, 180, 0.10);
+    border-color: @global-border;
+}
+
+.uk-button-primary {
+    background-color: rgba(180, 180, 180, 0.10);
+    border-color: @global-primary-background;
+    color: @button-text-color;
+}
+
+.uk-button-danger {
+    background-color: transparent;
+    color: #f0506e;
+    border: 1px solid #f0506e;
+}
+
+.uk-button-disabled {
+    border: 1px solid #999 !important;
+    background-color: #ccc !important;
+    color: #919191 !important;
+}
+
+.uk-icon-button,
+.uk-icon-button:hover {
+    text-decoration: none
+}
+
+/*
+ * Accordion
+ */
+
+.uk-accordion-title {
+    display: block;
+    font-size: @global-font-size;
+    line-height: 1.4;
+    color: #333;
+    font-weight: 500;
+}
+
+.uk-accordion-title::before {
+    content: "";
+    width: 1.4em;
+    height: 1.4em;
+    float: left;
+    margin: 0 2px 0 0;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M10 17l5-5-5-5v10z'/%3E%3Cpath fill='none' d='M0 24V0h24v24H0z'/%3E%3C/svg%3E");
+    mask-position: 100% 50%;
+    background-image: none;
+    background-color: #333;
+}
+
+.uk-open>.uk-accordion-title::before {
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+    mask-position: 100% 50%;
+    background-image: none;
+}
+
+.uk-accordion-content {
+    margin-top: 10px;
+}
+
+/*
+ * Pagination
+ */
+
+.uk-pagination > * > :hover, .uk-pagination > * > :focus {
+    color: @global-primary-background;
+    text-decoration: none;
+}
+
+.uk-pagination > .uk-active > * {
+    color: @global-primary-background;
+}
+
+/*
+ * Checkboxes
+ */
+
+.uk-checkbox {
+    margin-right: 4px;
+}
+
+/*
+ * Menu subheadings should match accordion headers
+ */
+.menu-subheadings {
+    &:extend(.uk-accordion-title);
+}

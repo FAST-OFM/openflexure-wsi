@@ -1,0 +1,10 @@
+<a name="{{{anchorName}}}"></a>
+
+{{>heading-indent}}{{>sig-name}}
+
+{{#if meta}}
+> **Source:** `{{meta.path}}/{{meta.filename}}` (Line {{meta.lineno}})
+<br>
+{{/if}}
+> **Meta:** {{#if kind}}`{{kind}}`{{/if}}{{#if scope}} | `{{scope}}`{{/if}}
+<br>

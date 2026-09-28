@@ -1,0 +1,471 @@
+// Custom OpenFlexure theming
+// UIKit vars imported
+@import (reference) "uikit/src/less/uikit.theme.less";
+//
+// Colors
+//
+
+@global-color:                                  #000;
+@global-emphasis-color:                         #C32280;
+@global-muted-color:                            #666;
+
+@global-primary-background: #C32280;
+
+@inverse-primary-muted-color: lighten(@global-primary-background, 15%);
+@darkened-primary-color: darken(@global-primary-background, 15%);
+@inverse-global-color: fade(@global-inverse-color, 80%);
+
+@very-light-primary-color: lighten(@global-primary-background, 40%);
+
+@global-border: #d5d5d5;
+
+// UIkit
+// ========================================================================
+
+@global-font-family: ProximaNova, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+@global-font-size: 14px;
+
+@global-xxlarge-font-size: 38px;
+@global-xlarge-font-size: 30px;
+@global-large-font-size: 24px;
+@global-medium-font-size: 20px;
+@global-small-font-size: 14px;
+
+
+
+//
+// Base
+//
+
+@base-code-font-family: 'Roboto Mono', monospace;
+@base-code-font-size: 12px;
+
+@base-heading-font-weight: 300;
+
+@base-pre-font-size: 12px;
+@base-pre-padding: 25px;
+@base-pre-background: @global-muted-background;
+@base-pre-border-width: 0;
+@base-pre-border-radius: 0;
+
+.hook-base-body() {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizelegibility;
+}
+
+//
+// Decorations
+//
+@small-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+@big-shadow: 0 14px 25px rgba(0, 0, 0, 0.16);
+
+//
+// Container
+//
+
+@container-max-width: 1380px;
+@container-small-max-width: 650px;
+
+//
+// Navbar
+//
+
+@inverse-navbar-nav-item-color: @inverse-global-color;
+@inverse-navbar-nav-item-hover-color: @inverse-global-emphasis-color;
+
+//
+// Nav
+//
+
+@nav-header-font-size: 16px;
+
+//
+// Subnav
+//
+
+@inverse-subnav-item-color: @inverse-global-color;
+@inverse-subnav-item-hover-color: @inverse-global-emphasis-color;
+
+//
+// Tab
+//
+
+@tab-item-padding-horizontal: 10px;
+@tab-item-padding-vertical: 9px;
+@tab-item-border-width: 2px;
+@tab-item-font-size: 12px;
+
+.hook-tab-item() {
+    line-height: 20px;
+}
+
+//
+// Table
+//
+
+@table-header-cell-font-size: 12px;
+
+//
+// Label
+//
+
+@label-font-size: 12px;
+
+//
+// Text
+//
+
+.hook-text-lead() {
+    font-weight: 300;
+}
+
+.hook-text-large() {
+    font-weight: 300;
+}
+
+//
+// Utility
+//
+
+@inverse-logo-color: @inverse-global-emphasis-color;
+@inverse-logo-hover-color: @inverse-global-emphasis-color;
+
+//
+// Off-canvas
+//
+
+@offcanvas-bar-background: #fff;
+@offcanvas-bar-color-mode: dark;
+
+//
+// Inverse
+//
+// Colours for dark mode also in the colors section
+@inverse-global-muted-color: fade(@global-inverse-color, 60%);
+
+//
+// Paper
+//
+@paper-border-radius: 4px;
+@button-border-radius: 3px;
+
+
+/* ========================================================================
+   Theme
+ ========================================================================== */
+
+@sidebar-left-width: 240px;
+@sidebar-left-width-xl: 300px;
+
+@sidebar-right-width: 200px;
+@sidebar-right-left: 0px;
+@sidebar-right-left-xl: 60px;
+
+/*
+ * Navbar
+ */
+
+// Line Mode
+@navbar-nav-item-line-margin-vertical: 20px;
+@navbar-nav-item-line-margin-horizontal: @navbar-nav-item-padding-horizontal;
+@navbar-nav-item-line-height: 1px;
+@navbar-nav-item-line-background: currentColor;
+@navbar-nav-item-line-transition-duration: 0.3s;
+
+.hook-inverse() {
+
+    // Override background colour in dark mode
+    .uk-card {
+        background-color: #2a2a2a !important;
+        color: @inverse-global-color;
+    }
+}
+
+.hook-inverse() {
+    .uk-alert {
+        background-color: rgba(180, 180, 180, 0.15);
+        color: @inverse-global-color;
+        border-color: @inverse-global-color;
+    }
+
+    .uk-alert-danger {
+        color: @notification-message-danger-color;
+        border-color: @notification-message-danger-color
+    }
+    
+    .uk-alert-warning {
+        color: @notification-message-warning-color;
+        border-color: @notification-message-warning-color
+    }
+}
+
+/*
+ * OpenFlexure tabs.
+ *
+ * The ofm-* rules are global rules that are written for the to OFM interface (as opposed to
+ * imported global rules). All tab content is in an `ofm-tab`
+ */
+
+.ofm-tab {
+    --ofm-navbar-height: 50px;
+}
+
+// For adding a nav bar at the top of an `.ofm-tab`
+.ofm-tab-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  height: var(--ofm-navbar-height);
+  border-width: 0 0 1px;
+  border-style: solid;
+  border-color: rgba(180, 180, 180, 0.25);
+  padding-right: 15px;
+  background: #fff;
+}
+
+// Make the gap increase for larger screens, this means that the right padding
+// always matches the gap in uk-navbar-right
+@media (width >= 960px) {
+    .ofm-tab-navbar {
+        padding-right: 30px;
+    }
+}
+
+.hook-inverse() {
+    .ofm-tab-navbar {
+        background: #252525;
+    }
+}
+
+/*
+ * A container with a sidebar.
+ *
+ * This is designed to be used inside an `.ofm-tab` to create a container with a sidebar that can be
+ * opened on the right hand side.
+ */
+.ofm-container-with-sidebar
+{
+    display: grid;
+    grid-template-columns: 1fr 0;
+    height: 100%;
+}
+
+.ofm-container-with-sidebar.sidebar-open {
+    grid-template-columns: 1fr 250px;
+}
+
+.ofm-sidebar {
+    padding: 10px;
+    overflow: hidden;
+    border-left: none;
+    display: none;
+    background:#f5f5f5;
+}
+
+.ofm-sidebar.open {
+    border-left: 1px solid rgba(180, 180, 180, 0.25);
+    display: block;
+}
+
+.hook-inverse() {
+    .ofm-sidebar{
+        background: #282626;
+    }
+}
+
+/*
+ * Text
+ */
+
+// A text label for an input control that is highlighted
+.ofm-highlighted-label {
+    color: @darkened-primary-color;
+    // 500 is slightly more bold than normal text (400) and less than semi-bold (600)
+    font-weight: 500;
+}
+
+// Reducing the ui-kit margins from 20px to 5px
+.ofm-close-pars p{
+  margin-bottom: 5px;
+}
+
+// Use CSS "next-sibling combinator" to get p-tags following another tag at the same level.
+.ofm-close-pars * + p{
+  margin-top: 5px;
+}
+
+.hook-inverse() {
+    .ofm-highlighted-label{
+        color: @very-light-primary-color;
+    }
+}
+
+/*
+ * Links
+ */
+.hook-inverse() {
+    .uk-link:hover,
+    .uk-button-link:hover,
+    a:hover {
+        color: @inverse-primary-muted-color;
+    }
+    
+    .uk-alert-success{
+        color: rgb(28, 131, 45);
+        background-color: rgba(130, 221, 145, 0.671);
+    }
+}
+
+// For links that shouldn't look styled like links (such as in menus)
+.ofm-unstyled-link {
+  text-decoration: none;
+  cursor: pointer;
+  color: @global-color;
+}
+
+.ofm-unstyled-link.disabled{
+    cursor: default;
+    color: @global-muted-color;
+}
+
+.hook-inverse() {
+    .ofm-unstyled-link{
+        color: @inverse-global-color;
+    }
+}
+
+/*
+ * Buttons
+ */
+.hook-inverse() {
+    .uk-button {
+        background-color: rgba(27, 13, 13, 0.15);
+        color: @inverse-primary-muted-color;
+        border-color: @inverse-primary-muted-color;
+    }
+
+    .uk-button:hover {
+        background-color: @inverse-primary-muted-color;
+        color: #fff;
+        border-color: #fff;
+    }
+
+    .uk-button-primary {
+        background-color: rgb(0, 0, 0);
+        color: @inverse-primary-muted-color;
+        border-color: @inverse-primary-muted-color;
+    }
+
+    .uk-button-primary:hover {
+        background-color: @inverse-primary-muted-color;
+        color: #fff;
+        border-color: #fff;
+    }
+
+    .uk-button-disabled {
+        border: 1px solid @darkened-primary-color !important;
+        background-color: #333 !important;
+        color: #777 !important;
+    }
+}
+
+.ofm-top-nav-button {
+  margin-top: 4px;
+  height: 38px;
+}
+
+.ofm-top-nav-square-button {
+  margin-top: 4px;
+  height: 38px;
+  aspect-ratio: 1;
+}
+
+.ofm-top-nav-square-button.material-icon {
+  // Material icons are 24x24 , set padding to centre
+  padding: 6px !important;
+}
+
+// A button styled like text. For use in menus
+.ofm-text-button {
+  display: block;
+  background: none;
+  border: none;
+  padding: 8px 10px;
+  cursor: pointer;
+  color: @global-color;
+  width: 100%;
+  text-align: left;
+  font-weight: 600;
+}
+.hook-inverse() {
+    .ofm-text-button{
+        color: @inverse-global-color;
+    }
+}
+
+/*
+ * Opaque - button-like colours
+ *
+ * The buttons are transparent. If an element overlays others it should
+ * Look the same as the buttons, but have no transparency.
+ */
+.ofm-opaque-element{
+    background: #f5f5f5;
+}
+.hook-inverse() {
+    .ofm-opaque-element{
+        background: #282626;
+    }
+}
+
+.ofm-opaque-highlight:hover {
+  background: #fff;
+}
+.hook-inverse() {
+    .ofm-opaque-highlight:hover {
+        background: #000;
+    }
+}
+
+/*
+ * Accordion
+ */
+
+.uk-accordion-title.ofm-highlighted-title {
+    font-weight: 800;
+}
+
+.hook-inverse() {
+    .uk-accordion-title::before {
+        background-color: #fff;
+    }
+}
+
+.hook-inverse() {
+    .menu-subheading, .uk-accordion-title {
+        color: @inverse-global-color;
+    }
+}
+
+
+/*
+ * Interactive elements
+ */
+
+.ofm-muted-interactive-text{
+    color: @global-muted-color;
+
+    &:hover {
+        color: @global-color;
+    }
+}
+.hook-inverse() {
+    .ofm-muted-interactive-text{
+        &:hover {
+            color: @inverse-global-color;
+        }
+    }
+}

@@ -1,0 +1,108 @@
+# Pyenv files
+.python-version
+.venv*/
+.env*/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Mypy cache
+.mypy_cache*
+.dmypy.json
+mypy/
+mypy-out.txt
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+pip-wheel-metadata/
+/openflexure/
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.pytest_cache/
+.ruff_cache/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+report.xml
+pytest_report.xml
+.coverage.picamera
+.coverage.main
+picamera_test_hashes.json
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+
+# Documentation
+apidocs/python
+apidocs/http/*.json
+
+# PyBuilder
+target/
+
+#Big-o files
+*.data
+
+#IDE files
+.DS_Store
+.vscode/
+.idea/
+activate
+
+# UML diagrams
+classes.png
+packages.png
+openflexure_microscope/cobertura.xml
+
+# labthings settings
+settings/
+openflexure_settings/
+
+# web app build
+/src/openflexure_microscope_server/static/
+
+# Files created by test utilities
+/tests/unit_tests/utilities/*.pstats
+/tests/unit_tests/utilities/*.png
+coverage/
+# Files created by simulator
+openflexure/
+
+# js version file
+/webapp/src/version.js
+
+# Hypothesis
+.hypothesis

@@ -1,0 +1,12 @@
+{
+    "things": {
+        "camera": "openflexure_microscope_server.things.camera.opencv:OpenCVCamera",
+        "system": "openflexure_microscope_server.things.system:OpenFlexureSystem"
+    },
+    "settings_folder": "./openflexure/settings/",
+    "api_prefix": "/api/v3",
+    "application_config": {
+        "log_folder": "./openflexure/logs/",
+        "data_folder": "./openflexure/data/"
+    }
+}

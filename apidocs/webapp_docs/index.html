@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
+
+  <title>OpenFlexure Microscope WebApp Client Developer Guidance</title>
+  <meta name="description" content="Developer information for the OpenFlexure Microscope Server.">
+  <link rel="icon" href="../http/assets/favicon-32x32.png">
+  <link rel="stylesheet" href="../dev/ofm.css">
+
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script>
+    // Docsify Configuration (see https://docsify.js.org/#/configuration)
+    window.$docsify = {
+  name: 'Developer Documentation',
+  // Set the default landing page to an existing file
+  homepage: 'guide.md', 
+  
+  auto2top: true,
+  loadSidebar: true,
+  maxLevel: 0,
+  subMaxLevel: 0,
+
+  logo: '../http/assets/titleiconpink.svg',
+  themeColor: '#D81B60',
+
+  search: {
+    placeholder: 'Type to search',
+    noData: 'No matches found.',
+    depth: 1,
+  },
+  plugins: [
+    function pageFooter(hook, vm) {
+      var footer = [
+        '<hr/>',
+        '<footer>',
+        '<span>Generated from source code using <a href="https://github.com/jsdoc2md/jsdoc-to-markdown" target="_blank">jsdoc-to-markdown</a><a href="https://vue-styleguidist.github.io/docs/docgen-cli.html" target="_blank">, and vue-docgen-cli</a></span>',
+        '<br>',
+        '<span>Published with <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a>.</span>',
+        '</footer>',
+      ].join('');
+
+      hook.afterEach(function (html) {
+        return html + footer;
+      });
+    },
+  ],
+};
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.js"></script>
+
+</body>
+</html>

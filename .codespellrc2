@@ -1,0 +1,32 @@
+[codespell]
+# A separate RC file for detecting camelCase, PascalCase, and kebab-case errors
+# A little more prone to false positives than our standard regex, also fails to detect
+# hyphenated words in the dictionary.
+
+# Same as the main RC-file except it also excludes CHANGELOG as this is well covered
+# by the normal RC file, and we get false positives from git hashes.
+skip = node_modules,
+       *-lock.json,
+       ./.git,
+       *.pyc,
+       __pycache__,
+       ./build,
+       ./dist,
+       ./apidocs,
+       ./openflexure,
+       ./htmlcov,
+       ./src/openflexure_microscope_server/static,
+       .venv,
+       *.egg-info,
+       report.xml,
+       CHANGELOG.md,
+       ./webapp/src/tests/fixtures/*,
+       ./webapp/coverage/*,
+       *.svg,
+
+# Ignores split by |
+# Ignore hexadecimal numbers preceded by #
+# Ignore FoV and FoM
+ignore-regex = #[0-9A-Fa-f]{3,8}\b|FoV|FoM
+
+regex = [A-Z]?[a-z\']+

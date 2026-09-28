@@ -1,0 +1,24 @@
+[codespell]
+
+skip = node_modules,
+       *-lock.json,
+       ./.git,
+       *.pyc,
+       __pycache__,
+       ./build,
+       ./dist,
+       ./apidocs/*.html,
+       ./apidocs/*.js,
+       ./apidocs/*.json,
+       ./apidocs/*.css,
+       ./openflexure,
+       ./htmlcov,
+       ./src/openflexure_microscope_server/static,
+       .venv,
+       *.egg-info,
+       src/tests/unit,
+       ./webapp/coverage/*,
+       *.svg,
+
+regex = [a-zA-Z0-9\-'’]+
+ignore-words-list = fom, afterAll

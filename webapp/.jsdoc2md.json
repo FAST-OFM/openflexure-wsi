@@ -1,0 +1,19 @@
+{
+  "files": [
+    "*.config.js",
+    "src/**/*.js"  
+  ],
+  "configure": "./jsdoc.conf.json",
+  "template": "../apidocs/webapp_docs/jsdoc-template.hbs",
+  "partial": "../apidocs/webapp_docs/partials/*.hbs",
+  "heading-depth": 2,
+  "member-index-format": "none",
+  "module-index-format": "none",
+  "global-index-format": "none",
+  "param-list-format": "table",
+  "property-list-format": "table",
+  "name-format": "backticks",
+  "separators": false,
+  "example-lang": "javascript",
+  "no-cache": true
+}

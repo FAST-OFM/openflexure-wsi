@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>OpenFlexure Microscope Server Failed to Start</title>
+    <meta name="description" content="The OpenFlexure Microscope Server failed to start due to a configuration or runtime error. Diagnostic information is shown below." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+        :root {
+
+            /* UI colours */
+            --bg: #f8fafc;
+            --panel: #ffffff;
+            --text: #1f2933;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+            --code-bg: #f1f5f9;
+            --error-bg: #fee2e2;
+            --error-border: #fecaca;
+            --error-text: #7f1d1d;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 2rem;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.75rem;
+        }
+
+        h2 {
+            margin-top: 2rem;
+            font-size: 1.25rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.25rem;
+        }
+
+        p {
+            margin: 0.5rem 0 1rem;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .error-message {
+            padding: 1rem;
+            background: var(--error-bg);
+            border: 1px solid var(--error-border);
+            border-radius: 6px;
+            color: var(--error-text);
+            margin: 1.5rem 0;
+            font-weight: 500;
+        }
+
+        ul {
+            padding-left: 1.25rem;
+        }
+
+        li {
+            margin: 0.25rem 0;
+        }
+
+        pre {
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-size: 0.875rem;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <section class="panel">
+
+            <div class="header">
+                <!-- Inline Openflexure Logo -->
+                <svg height="3rem" viewBox="0 0 263 163" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="path3773" transform="matrix(0.376342,0,0,0.376342,-8.65757,-85.6939)"><path d="M212.85,344.652C234.052,276.913 297.347,227.702 372.047,227.702C446.747,227.702 510.042,276.913 531.245,344.652L531.246,344.656C531.789,346.391 532.304,348.138 532.791,349.896C556.452,421.618 655.593,393.868 655.593,393.868L721.09,563.056L472.356,659.347L430.306,550.728L430.129,550.794L406.853,490.142C408.621,489.464 410.361,488.736 412.072,487.962C419.736,484.232 426.404,480.109 432.198,475.703C447.995,463.209 459.586,446.041 465.257,426.69C473.38,395.32 463.384,366.691 463.101,365.891C449.309,328.959 413.54,302.366 372.047,302.366C330.554,302.366 294.785,328.959 280.994,365.891C280.711,366.689 270.714,395.319 278.838,426.69C284.509,446.041 296.099,463.209 311.897,475.703C317.69,480.109 324.359,484.232 332.023,487.962C333.734,488.736 335.474,489.464 337.242,490.142L337.166,490.34L313.965,550.794L313.788,550.728L271.739,659.347L23.004,563.056L88.501,393.868C88.501,393.868 187.642,421.618 211.303,349.896C211.79,348.138 212.306,346.391 212.849,344.656L212.85,344.652Z" style="fill:rgb(197,36,127);fill-rule:nonzero;"/></g></svg>
+
+                <h1>The OpenFlexure Microscope Server couldn't start.</h1>
+            </div>
+
+            <p class="muted">
+                The OpenFlexure Microscope Server failed during startup. This is
+                usually caused by an invalid configuration, missing dependency,
+                or a runtime exception. This page provides logging information for debugging.
+            </p>
+            <p class="muted">
+                You can get help with your microscope on the 
+                <a href="https://openflexure.discourse.group/" target="_blank" rel="noopener noreferrer">OpenFlexure Forum</a>
+                (https://openflexure.discourse.group/).
+            </p>
+
+            {% if error_message %}
+            <div class="error-message">
+                {{ error_message }}
+            </div>
+            {% endif %}
+
+            {% if things %}
+            <h2>The following Things loaded successfully:</h2>
+            <ul>
+                {% for name in things %}
+                <li>{{ name }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            <h2>Configuration</h2>
+            <pre>{{ config }}</pre>
+
+            <h2>Traceback</h2>
+            <pre>{{ traceback }}</pre>
+
+            <h2>Logging</h2>
+            {% if logginginfo %}
+                <pre>{{ logginginfo }}</pre>
+            {% else %}
+                <p class="muted">No logging information available.</p>
+            {% endif %}
+        </section>
+
+        <footer>
+            LabThings fallback server
+        </footer>
+    </main>
+</body>
+</html>

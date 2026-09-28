@@ -1,0 +1,28 @@
+{
+    "things": {
+        "camera": "openflexure_microscope_server.things.camera.simulation:SimulatedCamera",
+        "stage": "openflexure_microscope_server.things.stage.dummy:DummyStage",
+        "autofocus": "openflexure_microscope_server.things.focus.autofocus:AutofocusThing",
+        "gallery": "openflexure_microscope_server.things.gallery.GalleryThing",
+        "camera_stage_mapping": "openflexure_microscope_server.things.stage.camera_stage_mapping:CameraStageMapper",
+        "illumination": "openflexure_microscope_server.things.illumination.SimulatorIllumination",
+        "system": "openflexure_microscope_server.things.system:OpenFlexureSystem",
+        "smart_scan": {
+            "class": "openflexure_microscope_server.things.scanning.smart_scan:SmartScanThing",
+            "kwargs": {
+                "default_workflow": "fast_ofm_scan_workflow"
+            }
+        },
+        "fast_ofm_scan_workflow": "openflexure_microscope_server.things.scanning.scan_workflows:FastOFMWorkflow",
+        "snake_workflow": "openflexure_microscope_server.things.scanning.scan_workflows:SnakeWorkflow",
+        "raster_workflow": "openflexure_microscope_server.things.scanning.scan_workflows:RasterWorkflow",
+        "bg_color_channels_luv": "openflexure_microscope_server.things.scanning.background_detect:ColourChannelDetectLUV",
+        "bg_channel_deviations_luv": "openflexure_microscope_server.things.scanning.background_detect:ChannelDeviationLUV"
+    },
+    "settings_folder": "./openflexure/settings/",
+    "api_prefix": "/api/v3",
+    "application_config": {
+        "log_folder": "./openflexure/logs/",
+        "data_folder": "./openflexure/data/"
+    }
+}

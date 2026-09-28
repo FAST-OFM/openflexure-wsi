@@ -1,0 +1,882 @@
+[
+    {
+        "timestamp": "2026-08-24 16:33:39,365",
+        "level": "ERROR",
+        "summary": "Moved the stage by [   0. 8192.    0.] but saw no motion.",
+        "message": "Moved the stage by [   0. 8192.    0.] but saw no motion.",
+        "invocation_id": "c615d762-4cbd-4e4e-a7dc-b49da1a867cc",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 87
+    },
+    {
+        "timestamp": "2026-08-24 16:33:39,344",
+        "level": "INFO",
+        "summary": "Returning to starting position due to failed calibration",
+        "message": "Returning to starting position due to failed calibration",
+        "invocation_id": "c615d762-4cbd-4e4e-a7dc-b49da1a867cc",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 86
+    },
+    {
+        "timestamp": "2026-08-24 16:33:16,377",
+        "level": "INFO",
+        "summary": "Moving the stage until we see motion...",
+        "message": "Moving the stage until we see motion...",
+        "invocation_id": "c615d762-4cbd-4e4e-a7dc-b49da1a867cc",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 85
+    },
+    {
+        "timestamp": "2026-08-24 16:33:15,783",
+        "level": "INFO",
+        "summary": "Calibrating Y axis:",
+        "message": "Calibrating Y axis:",
+        "invocation_id": "c615d762-4cbd-4e4e-a7dc-b49da1a867cc",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 84
+    },
+    {
+        "timestamp": "2026-08-24 16:33:05,410",
+        "level": "INFO",
+        "summary": "CSM matrix is [0.09, 3.63,],[3.63, -0.01].",
+        "message": "CSM matrix is [0.09, 3.63,],[3.63, -0.01].",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 83
+    },
+    {
+        "timestamp": "2026-08-24 16:33:05,409",
+        "level": "INFO",
+        "summary": "Calibration complete, updating metadata.",
+        "message": "Calibration complete, updating metadata.",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 82
+    },
+    {
+        "timestamp": "2026-08-24 16:33:05,334",
+        "level": "INFO",
+        "summary": "Residuals were about 0.01 times the step size",
+        "message": "Residuals were about 0.01 times the step size",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 81
+    },
+    {
+        "timestamp": "2026-08-24 16:33:05,334",
+        "level": "INFO",
+        "summary": "Stage-to-image ratio 0.138 pixels/step",
+        "message": "Stage-to-image ratio 0.138 pixels/step",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 80
+    },
+    {
+        "timestamp": "2026-08-24 16:33:05,333",
+        "level": "INFO",
+        "summary": "Estimated backlash 95 steps",
+        "message": "Estimated backlash 95 steps",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 79
+    },
+    {
+        "timestamp": "2026-08-24 16:33:00,346",
+        "level": "INFO",
+        "summary": "Moving back to the start, correcting for backlash...",
+        "message": "Moving back to the start, correcting for backlash...",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 78
+    },
+    {
+        "timestamp": "2026-08-24 16:32:53,074",
+        "level": "INFO",
+        "summary": "Moving the stage forwards to measure backlash (2/2)",
+        "message": "Moving the stage forwards to measure backlash (2/2)",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 77
+    },
+    {
+        "timestamp": "2026-08-24 16:32:46,569",
+        "level": "INFO",
+        "summary": "Moving the stage backwards to measure backlash (1/2)",
+        "message": "Moving the stage backwards to measure backlash (1/2)",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 76
+    },
+    {
+        "timestamp": "2026-08-24 16:32:44,119",
+        "level": "INFO",
+        "summary": "Moving the stage to the edge of the field of view...",
+        "message": "Moving the stage to the edge of the field of view...",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 75
+    },
+    {
+        "timestamp": "2026-08-24 16:32:38,980",
+        "level": "INFO",
+        "summary": "Moving the stage until we see motion...",
+        "message": "Moving the stage until we see motion...",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 74
+    },
+    {
+        "timestamp": "2026-08-24 16:32:38,447",
+        "level": "INFO",
+        "summary": "Calibrating X axis:",
+        "message": "Calibrating X axis:",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 73
+    },
+    {
+        "timestamp": "2026-08-24 16:32:38,369",
+        "level": "INFO",
+        "summary": "Residuals were about 0.00 times the step size",
+        "message": "Residuals were about 0.00 times the step size",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 72
+    },
+    {
+        "timestamp": "2026-08-24 16:32:38,369",
+        "level": "INFO",
+        "summary": "Stage-to-image ratio 0.138 pixels/step",
+        "message": "Stage-to-image ratio 0.138 pixels/step",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 71
+    },
+    {
+        "timestamp": "2026-08-24 16:32:38,369",
+        "level": "INFO",
+        "summary": "Estimated backlash 53 steps",
+        "message": "Estimated backlash 53 steps",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 70
+    },
+    {
+        "timestamp": "2026-08-24 16:32:34,243",
+        "level": "INFO",
+        "summary": "Moving back to the start, correcting for backlash...",
+        "message": "Moving back to the start, correcting for backlash...",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 69
+    },
+    {
+        "timestamp": "2026-08-24 16:32:26,854",
+        "level": "INFO",
+        "summary": "Moving the stage forwards to measure backlash (2/2)",
+        "message": "Moving the stage forwards to measure backlash (2/2)",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 68
+    },
+    {
+        "timestamp": "2026-08-24 16:32:20,488",
+        "level": "INFO",
+        "summary": "Moving the stage backwards to measure backlash (1/2)",
+        "message": "Moving the stage backwards to measure backlash (1/2)",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 67
+    },
+    {
+        "timestamp": "2026-08-24 16:32:17,949",
+        "level": "INFO",
+        "summary": "Moving the stage to the edge of the field of view...",
+        "message": "Moving the stage to the edge of the field of view...",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 66
+    },
+    {
+        "timestamp": "2026-08-24 16:32:12,768",
+        "level": "INFO",
+        "summary": "Moving the stage until we see motion...",
+        "message": "Moving the stage until we see motion...",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 65
+    },
+    {
+        "timestamp": "2026-08-24 16:32:12,166",
+        "level": "INFO",
+        "summary": "Calibrating Y axis:",
+        "message": "Calibrating Y axis:",
+        "invocation_id": "c1253828-dfee-4562-acee-143a250d3f15",
+        "calling_action": "calibrate_xy",
+        "logger": "labthings_fastapi.things.camera_stage_mapping",
+        "sequence": 64
+    },
+    {
+        "timestamp": "2026-08-24 16:32:02,225",
+        "level": "INFO",
+        "summary": "Stitching complete",
+        "message": "Stitching complete",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 63
+    },
+    {
+        "timestamp": "2026-08-24 16:32:01,020",
+        "level": "INFO",
+        "summary": "Exporting stitched image. Depending on the size of your scan, this may take a while.",
+        "message": "Exporting stitched image. Depending on the size of your scan, this may take a while.",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 62
+    },
+    {
+        "timestamp": "2026-08-24 16:32:01,019",
+        "level": "INFO",
+        "summary": "Final image will be exported with size (2032, 1662) pixels",
+        "message": "Final image will be exported with size (2032, 1662) pixels",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 61
+    },
+    {
+        "timestamp": "2026-08-24 16:32:00,618",
+        "level": "INFO",
+        "summary": "The data from this scan suggest that a more accurate camera stage mapping matrix would be [[ 0.    ,  4.1976], [-0.    , -0.1147]]",
+        "message": "The data from this scan suggest that a more accurate camera stage mapping matrix would be [[ 0.    ,  4.1976], [-0.    , -0.1147]]",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 60
+    },
+    {
+        "timestamp": "2026-08-24 16:32:00,618",
+        "level": "INFO",
+        "summary": "The input camera stage mapping matrix was [[ 0.0817,  3.6218], [ 3.633 , -0.0105]]. This was calculated for images with a width of 820",
+        "message": "The input camera stage mapping matrix was [[ 0.0817,  3.6218], [ 3.633 , -0.0105]]. This was calculated for images with a width of 820",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 59
+    },
+    {
+        "timestamp": "2026-08-24 16:32:00,618",
+        "level": "INFO",
+        "summary": "Using 1 of the 1 pairs for final optimisation",
+        "message": "Using 1 of the 1 pairs for final optimisation",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 58
+    },
+    {
+        "timestamp": "2026-08-24 16:31:59,815",
+        "level": "INFO",
+        "summary": "After filtering and resampling 1 peak quality thresholds and 1 stage discrepancy thresholds will be trialed for fit quality.",
+        "message": "After filtering and resampling 1 peak quality thresholds and 1 stage discrepancy thresholds will be trialed for fit quality.",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 57
+    },
+    {
+        "timestamp": "2026-08-24 16:31:59,814",
+        "level": "INFO",
+        "summary": "Starting with 1 possible peak quality thresholds and 1 possible stage discrepancy thresholds",
+        "message": "Starting with 1 possible peak quality thresholds and 1 possible stage discrepancy thresholds",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 56
+    },
+    {
+        "timestamp": "2026-08-24 16:31:59,813",
+        "level": "INFO",
+        "summary": "Finding the optimal threshold",
+        "message": "Finding the optimal threshold",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 55
+    },
+    {
+        "timestamp": "2026-08-24 16:31:59,010",
+        "level": "INFO",
+        "summary": "Plotting the inputs to stitching",
+        "message": "Plotting the inputs to stitching",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 54
+    },
+    {
+        "timestamp": "2026-08-24 16:31:59,009",
+        "level": "INFO",
+        "summary": "Getting all the image info ready to stitch",
+        "message": "Getting all the image info ready to stitch",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 53
+    },
+    {
+        "timestamp": "2026-08-24 16:31:59,009",
+        "level": "INFO",
+        "summary": "Correlation complete. Pairs loaded from cache: 1, pairs calculated: 0",
+        "message": "Correlation complete. Pairs loaded from cache: 1, pairs calculated: 0",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 52
+    },
+    {
+        "timestamp": "2026-08-24 16:31:58,808",
+        "level": "INFO",
+        "summary": "Starting correlation of overlapping image pairs.",
+        "message": "Starting correlation of overlapping image pairs.",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 51
+    },
+    {
+        "timestamp": "2026-08-24 16:31:58,807",
+        "level": "INFO",
+        "summary": "Finding a list of all overlapping images",
+        "message": "Finding a list of all overlapping images",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 50
+    },
+    {
+        "timestamp": "2026-08-24 16:31:56,386",
+        "level": "INFO",
+        "summary": "Stitching final image (may take some time)...",
+        "message": "Stitching final image (may take some time)...",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 49
+    },
+    {
+        "timestamp": "2026-08-24 16:31:56,385",
+        "level": "INFO",
+        "summary": "Waiting for background processes to finish...",
+        "message": "Waiting for background processes to finish...",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 48
+    },
+    {
+        "timestamp": "2026-08-24 16:31:54,431",
+        "level": "INFO",
+        "summary": "Returning to starting position.",
+        "message": "Returning to starting position.",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 47
+    },
+    {
+        "timestamp": "2026-08-24 16:31:54,413",
+        "level": "INFO",
+        "summary": "Camera started",
+        "message": "Camera started",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "picamera2.picamera2",
+        "sequence": 46
+    },
+    {
+        "timestamp": "2026-08-24 16:31:54,382",
+        "level": "INFO",
+        "summary": "Starting picamera MJPEG stream...",
+        "message": "Starting picamera MJPEG stream...",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "openflexure_microscope_server.things.camera.picamera",
+        "sequence": 45
+    },
+    {
+        "timestamp": "2026-08-24 16:31:54,336",
+        "level": "INFO",
+        "summary": "Configuration successful!",
+        "message": "Configuration successful!",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "picamera2.picamera2",
+        "sequence": 44
+    },
+    {
+        "timestamp": "2026-08-24 16:31:54,334",
+        "level": "INFO",
+        "summary": "Camera configuration has been adjusted!",
+        "message": "Camera configuration has been adjusted!",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "picamera2.picamera2",
+        "sequence": 43
+    },
+    {
+        "timestamp": "2026-08-24 16:31:53,522",
+        "level": "INFO",
+        "summary": "Camera stopped",
+        "message": "Camera stopped",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "picamera2.picamera2",
+        "sequence": 42
+    },
+    {
+        "timestamp": "2026-08-24 16:31:53,363",
+        "level": "INFO",
+        "summary": "Stopping scan because it was cancelled.",
+        "message": "Stopping scan because it was cancelled.",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 41
+    },
+    {
+        "timestamp": "2026-08-24 16:31:45,671",
+        "level": "INFO",
+        "summary": "Moving to (19, 992)",
+        "message": "Moving to (19, 992)",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 40
+    },
+    {
+        "timestamp": "2026-08-24 16:31:37,874",
+        "level": "INFO",
+        "summary": "Moving to (1955, 992)",
+        "message": "Moving to (1955, 992)",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 39
+    },
+    {
+        "timestamp": "2026-08-24 16:31:31,628",
+        "level": "INFO",
+        "summary": "Moving to (1955, 2442)",
+        "message": "Moving to (1955, 2442)",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.smart_scan",
+        "sequence": 38
+    },
+    {
+        "timestamp": "2026-08-24 16:31:28,718",
+        "level": "INFO",
+        "summary": "Scanning with steps of dx=1936 and dy=1450.",
+        "message": "Scanning with steps of dx=1936 and dy=1450.",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "labthings_fastapi.things.fast_ofm_scan_workflow",
+        "sequence": 37
+    },
+    {
+        "timestamp": "2026-08-24 16:31:28,515",
+        "level": "INFO",
+        "summary": "Camera started",
+        "message": "Camera started",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "picamera2.picamera2",
+        "sequence": 36
+    },
+    {
+        "timestamp": "2026-08-24 16:31:28,482",
+        "level": "INFO",
+        "summary": "Starting picamera MJPEG stream...",
+        "message": "Starting picamera MJPEG stream...",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "openflexure_microscope_server.things.camera.picamera",
+        "sequence": 35
+    },
+    {
+        "timestamp": "2026-08-24 16:31:28,332",
+        "level": "INFO",
+        "summary": "Configuration successful!",
+        "message": "Configuration successful!",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "picamera2.picamera2",
+        "sequence": 34
+    },
+    {
+        "timestamp": "2026-08-24 16:31:28,327",
+        "level": "INFO",
+        "summary": "Camera configuration has been adjusted!",
+        "message": "Camera configuration has been adjusted!",
+        "invocation_id": "05a3b401-f38b-458c-a35f-9ad5d6a193c4",
+        "calling_action": "sample_scan",
+        "logger": "picamera2.picamera2",
+        "sequence": 33
+    },
+    {
+        "timestamp": "2026-08-24 16:31:27,509",
+        "level": "INFO",
+        "summary": "Camera stopped",
+        "message": "Camera stopped",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "picamera2.picamera2",
+        "sequence": 32
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,791",
+        "level": "INFO",
+        "summary": "Uvicorn running on http://0.0.0.0:5000 (Press CTRL+C to quit)",
+        "message": "Uvicorn running on http://0.0.0.0:5000 (Press CTRL+C to quit)",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "uvicorn",
+        "sequence": 31
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,787",
+        "level": "INFO",
+        "summary": "Application startup complete.",
+        "message": "Application startup complete.",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "uvicorn",
+        "sequence": 30
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,738",
+        "level": "INFO",
+        "summary": "Enabling backwards-compatible behaviour on new Sangaboard firmware",
+        "message": "Enabling backwards-compatible behaviour on new Sangaboard firmware",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.sangaboard",
+        "sequence": 29
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,723",
+        "level": "INFO",
+        "summary": "Loading modules...",
+        "message": "Loading modules...",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.sangaboard",
+        "sequence": 28
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,723",
+        "level": "INFO",
+        "summary": "Firmware response: Sangaboard Firmware v1.0.4",
+        "message": "Firmware response: Sangaboard Firmware v1.0.4",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.sangaboard",
+        "sequence": 27
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,718",
+        "level": "INFO",
+        "summary": "Running firmware checks...",
+        "message": "Running firmware checks...",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.sangaboard",
+        "sequence": 26
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,718",
+        "level": "INFO",
+        "summary": "Checking valid firmware...",
+        "message": "Checking valid firmware...",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.sangaboard",
+        "sequence": 25
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,718",
+        "level": "INFO",
+        "summary": "Opened ESI connection to port None",
+        "message": "Opened ESI connection to port None",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.extensible_serial_instrument",
+        "sequence": 24
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,717",
+        "level": "INFO",
+        "summary": "Firmware response: Sangaboard Firmware v1.0.4",
+        "message": "Firmware response: Sangaboard Firmware v1.0.4",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.sangaboard",
+        "sequence": 23
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,712",
+        "level": "INFO",
+        "summary": "Running firmware checks...",
+        "message": "Running firmware checks...",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.sangaboard",
+        "sequence": 22
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,712",
+        "level": "INFO",
+        "summary": "Testing communication to SangaBoard",
+        "message": "Testing communication to SangaBoard",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.sangaboard",
+        "sequence": 21
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,712",
+        "level": "INFO",
+        "summary": "Created Serial<id=0x7f74dae6b0, open=True>(port='/dev/ttyAMA0', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=None, xonxoff=False, rtscts=False, dsrdtr=False)",
+        "message": "Created Serial<id=0x7f74dae6b0, open=True>(port='/dev/ttyAMA0', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=None, xonxoff=False, rtscts=False, dsrdtr=False)",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.extensible_serial_instrument",
+        "sequence": 20
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,711",
+        "level": "INFO",
+        "summary": "Creating serial.Serial instance...",
+        "message": "Creating serial.Serial instance...",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.extensible_serial_instrument",
+        "sequence": 19
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,711",
+        "level": "INFO",
+        "summary": "Success!",
+        "message": "Success!",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.extensible_serial_instrument",
+        "sequence": 18
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,710",
+        "level": "INFO",
+        "summary": "Firmware response: Sangaboard Firmware v1.0.4",
+        "message": "Firmware response: Sangaboard Firmware v1.0.4",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.sangaboard",
+        "sequence": 17
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,705",
+        "level": "INFO",
+        "summary": "Running firmware checks...",
+        "message": "Running firmware checks...",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.sangaboard",
+        "sequence": 16
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,705",
+        "level": "INFO",
+        "summary": "Testing communication to SangaBoard",
+        "message": "Testing communication to SangaBoard",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.sangaboard",
+        "sequence": 15
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,705",
+        "level": "INFO",
+        "summary": "Created Serial<id=0x7f7483be80, open=True>(port='/dev/ttyAMA0', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=None, xonxoff=False, rtscts=False, dsrdtr=False)",
+        "message": "Created Serial<id=0x7f7483be80, open=True>(port='/dev/ttyAMA0', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=None, xonxoff=False, rtscts=False, dsrdtr=False)",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.extensible_serial_instrument",
+        "sequence": 14
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,704",
+        "level": "INFO",
+        "summary": "Creating serial.Serial instance...",
+        "message": "Creating serial.Serial instance...",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.extensible_serial_instrument",
+        "sequence": 13
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,699",
+        "level": "INFO",
+        "summary": "Opening ESI connection to port None",
+        "message": "Opening ESI connection to port None",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.extensible_serial_instrument",
+        "sequence": 12
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,699",
+        "level": "INFO",
+        "summary": "Updating ESI port settings",
+        "message": "Updating ESI port settings",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.extensible_serial_instrument",
+        "sequence": 11
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,698",
+        "level": "INFO",
+        "summary": "Initialising ExtensibleSerialInstrument on port None",
+        "message": "Initialising ExtensibleSerialInstrument on port None",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "sangaboard.sangaboard",
+        "sequence": 10
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,681",
+        "level": "INFO",
+        "summary": "Camera started",
+        "message": "Camera started",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "picamera2.picamera2",
+        "sequence": 9
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,649",
+        "level": "INFO",
+        "summary": "Starting picamera MJPEG stream...",
+        "message": "Starting picamera MJPEG stream...",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "openflexure_microscope_server.things.camera.picamera",
+        "sequence": 8
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,618",
+        "level": "INFO",
+        "summary": "Configuration successful!",
+        "message": "Configuration successful!",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "picamera2.picamera2",
+        "sequence": 7
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,615",
+        "level": "INFO",
+        "summary": "Camera configuration has been adjusted!",
+        "message": "Camera configuration has been adjusted!",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "picamera2.picamera2",
+        "sequence": 6
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,609",
+        "level": "INFO",
+        "summary": "Camera now open.",
+        "message": "Camera now open.",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "picamera2.picamera2",
+        "sequence": 5
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,608",
+        "level": "INFO",
+        "summary": "Initialization successful.",
+        "message": "Initialization successful.",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "picamera2.picamera2",
+        "sequence": 4
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,559",
+        "level": "INFO",
+        "summary": "Creating new Picamera2 object",
+        "message": "Creating new Picamera2 object",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "openflexure_microscope_server.things.camera.picamera",
+        "sequence": 3
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,504",
+        "level": "INFO",
+        "summary": "Waiting for application startup.",
+        "message": "Waiting for application startup.",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "uvicorn",
+        "sequence": 2
+    },
+    {
+        "timestamp": "2026-08-24 16:30:54,503",
+        "level": "INFO",
+        "summary": "Started server process [28702]",
+        "message": "Started server process [28702]",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "uvicorn",
+        "sequence": 1
+    },
+    {
+        "timestamp": "2026-08-24 16:30:53,451",
+        "level": "INFO",
+        "summary": "OFM server root logger has been set up at INFO level",
+        "message": "OFM server root logger has been set up at INFO level",
+        "invocation_id": null,
+        "calling_action": null,
+        "logger": "openflexure_microscope_server.logging",
+        "sequence": 0
+    }
+]

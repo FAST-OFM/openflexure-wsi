@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OpenFlexure Microscope HTTP API Docs</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css" />
+
+  <style>
+
+    .intro {
+      font-family: 'Open Sans', sans-serif;
+      max-width: 900px;
+      margin: 2.5rem auto 2rem;
+      padding: 0 1.5rem;
+      color: #2a2a2a;
+    }
+
+    .intro h1 {
+      color: #c5247f;
+      margin-bottom: 0.75rem;
+    }
+
+    .intro p {
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .intro code {
+      background: #f5f5f5;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+
+    .intro aside {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      background: #f8f8f8;
+      border-left: 4px solid #c5247f;
+      font-size: 0.9rem;
+    }
+
+    #swagger-ui {
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="intro">
+    <h1>OpenFlexure Microscope HTTP API</h1>
+
+    <p>
+      These docs are provided for reference only. They cannot control a running microscope.
+    </p>
+
+    <p>
+      For interactive documentation on a live microscope, visit:
+      <br>
+      <code>http://microscope.local:5000/docs</code>
+    </p>
+
+    <p>
+      You can also directly inspect the OpenAPI JSON file <a href="./openapi.json">openapi.json</a> or the WC3 "Web of Things" Thing Descriptions JSON <a href="./thing_descriptions.json">thing_descriptions.json</a>
+    </p>
+
+    <aside>
+      Replace <strong>microscope.local</strong> with your microscope's hostname or IP address
+      if your network uses a different name.
+    </aside>
+  </div>
+
+  <div id="swagger-ui"></div>
+
+  <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
+  <script>
+    window.onload = () => {
+      SwaggerUIBundle({
+        url: "./openapi.json",
+        dom_id: "#swagger-ui",
+        supportedSubmitMethods: [],
+      });
+    };
+  </script>
+
+</body>
+</html>

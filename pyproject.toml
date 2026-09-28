@@ -1,0 +1,184 @@
+[project]
+name = "openflexure-microscope-server"
+
+# Note that version needs to match a string stored in a unit test, and
+# the package.json file in the webapp or the CI will fail.
+version = "3.0.0-beta1"
+authors = [
+  { name="Richard Bowman", email="richard.bowman@cantab.net" },
+  { name="Joel Collins" },
+  { name="Julian Stirling" },
+]
+description = "Back-end code for the OpenFlexure Microscope"
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Operating System :: OS Independent",
+]
+dependencies = [
+  "labthings-fastapi==0.3.0",
+  "httpx~=0.28.1", # One-shot commands and fresh safety readbacks
+  "moonraker-api==4.0.0", # Persistent read-only controller status subscription
+  "sangaboard~=0.4.1",
+  "camera-stage-mapping ~= 0.1.10",
+  "opencv-python-headless ~= 4.13.0",
+  "openflexure-stitching[libvips]==0.3.1",
+  "pillow ~= 10.4",
+  "anyio ~= 4.0",
+  "numpy ~= 2.4.6",
+  "scipy ~=1.14",
+  "piexif",
+  "pydantic", # Pydantic is not pinned to avoid conflicts with how LabThings pins pydantic
+  "simplejpeg >= 1.8.2",
+  "semver ~= 3.0",
+  "SQLAlchemy ~= 2.0.51",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff~=0.16.1",
+  "mypy[reports]",
+  "pytest",
+  "pytest-cov",
+  "pytest-mock==3.14",
+  "matplotlib~=3.10",
+  "hypothesis",
+  "pydoctor~=25.4",
+  "codespell~=2.4",
+  "python-gitlab~=6.2"
+]
+pi = [
+  "picamera2~=0.3.27",
+  "openflexure-management-server==0.0.1",
+]
+manual = [
+  "cv2-enumerate-cameras~=1.3.3",
+]
+
+[project.scripts]
+openflexure-microscope-server = "openflexure_microscope_server.server:serve_from_cli"
+
+
+[project.urls]
+"Homepage" = "https://openflexure.org/"
+"Bug Tracker" = "https://gitlab.com/openflexure/openflexure-microscope-server/-/issues"
+"Source" = "https://gitlab.com/openflexure/openflexure-microscope-server/"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+# The [tool.poetry] metadata has been removed from this file, because 
+# we have switched to Pipenv for dependency management and setuptools
+# for the build system.  All metadata has been moved either to
+# Pipfile or setup.py.
+# The one key that doesn't map over nicely is the exclusion of 
+# the node_modules folder, i.e. the line below:
+#exclude = ["**/node_modules/"] # I've tried to put this in the "packages" key but not sure it works.
+# I have left it here in case we ever switch back to Poetry, but I 
+# don't believe it's critical at present, because we don't use 
+# the Python package - we distribute a tarball directly.
+
+[tool.mypy]
+plugins = ["pydantic.mypy"]
+
+[tool.ruff]
+target-version = "py311"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+    "--cov=openflexure_microscope_server",
+    "--cov-report=term",
+    "--cov-report=xml:coverage.xml",
+    "--cov-report=html:htmlcov",
+    "--junitxml=report.xml",
+]
+
+norecursedirs = [".git", "build", "node_modules"]
+pythonpath = ["."]
+testpaths = ["tests/unit_tests"]
+
+[tool.ruff.format]
+# Use native line endings for all files
+line-ending = "native"
+
+[tool.ruff.lint]
+select = [
+    "E", # pycodestyle errors
+    "W", #pycodestyle warnings
+    "F", # PyFlakes
+    "PL", # Pylint (a subset of, catches far less than pylint does)
+    "B", # Flake8 bugbear
+    "A", # Flake8 builtins checker
+    "C", # Flake8 comprehensions
+    "FIX", #TODO/FIXME's in code. These should be added during development for ongoing tasks.
+           # If they are not fixed before merge they should be converted to GitLab issues
+    "LOG", # Flake8 logging issues (pedantic logger formatting issues can be added with "G")
+    "T20", # Warns for print statements, production code should log
+    "PT", # pytest linting
+    "RET", # Consistent clear return statements
+    "RSE", # Raise parentheses
+    "SIM", # Simplifications detected
+    "ARG", # unused arguments
+    "C90", # McCabe complexity!
+    "NPY", # Numpy linting
+    "N", # PEP8 naming
+    "D", # Docstring checks
+    "ERA001", # Commented out code!
+    "S101",# No asserts!
+    "ANN", # Type annotations
+    "I", # Import sorting
+]
+
+ignore = [
+    "E501", # Ignore long lines for now
+    "D203",  # incompatible with D204
+    "D213",  # incompatible with D212
+    "D400",  # A stricter version of #415 that doesn't allow !
+    "ANN401", # Disalows Any, Any is needed at times, Once MyPy is running Any will be
+              # handled appropriately
+    "PLR2004", # Ignore magic values in comparison for now. It doesn't seem we can set
+               # allowed magic values and a number of our magic values are not really
+               # magic (such as 255 when doing uint8 maths)
+    "SIM105", # Not enforcing use of `contextlib.suppress(NotConnectedToServerError)`
+              # instead of `try`-`except`-`pass`
+]
+
+[tool.ruff.lint.per-file-ignores]
+# All testing dirs
+"{tests}/**" = [
+    "B018", # Complaining about useless attribute access in tests, but we need them to check errors are raised
+    "ANN", # Tests are not typehinted for fixtures etc
+    "S101", # Allow asserts in tests
+    "T20", # Allow prints in tests
+    "LOG015", # Allow tests to use the root logger.
+    "PLC0415", # Allow tests to import later as this is needed for mocking
+]
+# Developer CLI scripts
+"{pull_webapp,picamera_tests,change_log_helper}.py" = [
+    "T20", # Printing is normal in small CLI scripts
+]
+
+[tool.ruff.lint.pydocstyle]
+# This lets the D401 checker understand that decorated thing properties and thing
+# settings act like properties so should be documented as such.
+property-decorators = ["labthings_fastapi.property", "labthings_fastapi.setting"]
+
+[tool.ruff.lint.pylint]
+max-args = 7
+max-positional-args = 5
+
+
+[tool.ruff.lint.isort]
+section-order = ["future", "standard-library", "third-party", "ours", "first-party", "local-folder"]
+
+[tool.ruff.lint.isort.sections]
+ours = [
+    "camera_stage_mapping",
+    "openflexure_stitching",
+    "sangaboard",
+    "labthings_fastapi",
+]

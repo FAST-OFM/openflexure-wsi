@@ -1,0 +1,82 @@
+{
+  "name": "openflexure-microscope-server-ui",
+  "version": "3.0.0-beta1",
+  "private": true,
+  "description": "User interface for the OpenFlexure Microscope Server",
+  "author": "OpenFlexure <contact@openflexure.org> (https://www.openflexure.org)",
+  "engines": {
+    "node": ">=26.0.0"
+  },
+  "scripts": {
+    "gv": "genversion src/version.js",
+    "serve": "cross-env VITE_API_TARGET=local vite serve --mode development",
+    "serve:microscope": "cross-env VITE_API_TARGET=microscope vite serve --mode development",
+    "build": "vite build --mode production",
+    "lint": "eslint . --ignore-pattern .gitignore --max-warnings=0",
+    "lint:fix": "eslint . --fix --ignore-pattern .gitignore",
+    "lint:style": "stylelint \"src/**/*.{vue,less,css}\" --max-warnings=0",
+    "lint:style:fix": "stylelint \"src/**/*.{vue,less,css}\" --fix",
+    "test:unit": "cross-env NODE_OPTIONS=--expose-gc vitest run src/tests/unit/ --no-cache --mode test --detectAsyncLeaks --isolate=true --pool=forks --logHeapUsage --reporter=verbose",
+    "build:docs": "vue-docgen -c docgen.config.js && jsdoc2md --configure .jsdoc2md.json > ../apidocs/webapp_docs/JS.md"
+  },
+  "dependencies": {
+    "@vueuse/core": "^14.3.0",
+    "axios": "^1.16.1",
+    "material-symbols": "^0.44.9",
+    "mitt": "^3.0.1",
+    "mousetrap": "^1.6.5",
+    "openseadragon": "^6.0.2",
+    "pinia": "^3.0.4",
+    "pinia-plugin-persistedstate": "^4.7.1",
+    "uikit": "^3.25.16",
+    "vue": "^3.5.34"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@pinia/testing": "^1.0.3",
+    "@vitejs/plugin-vue": "^6.0.7",
+    "@vitest/coverage-v8": "^4.1.11",
+    "@vue/eslint-config-prettier": "10.2.0",
+    "@vue/test-utils": "^2.4.10",
+    "autoprefixer": "^10.5.0",
+    "core-js": "^3.49.0",
+    "cross-env": "^10.1.0",
+    "eslint": "^10.4.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-pinia": "^0.4.2",
+    "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-vue": "^10.9.1",
+    "globals": "^17.6.0",
+    "happy-dom": "^20.9.0",
+    "jsdoc-to-markdown": "^9.1.3",
+    "less": "^4.6.4",
+    "postcss-html": "^1.8.1",
+    "postcss-less": "^6.0.0",
+    "prettier": "^3.8.3",
+    "stylelint": "^17.12.0",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-config-standard-less": "^4.1.0",
+    "typescript-eslint": "^8.60.0",
+    "vite": "^8.0.14",
+    "vitest": "^4.1.11",
+    "vue-docgen-cli": "^4.79.0"
+  },
+  "overrides": {
+    "glob": "12.0",
+    "nanoid": "3.3.18"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "displayName": "OpenFlexure Microscope",
+  "homepage": "https://openflexure.org",
+  "license": "GNU General Public License v3.0 ",
+  "publisher": "OpenFlexure Project"
+}

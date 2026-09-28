@@ -1,0 +1,33 @@
+name: Feature proposal
+description: Propose a reusable, independently reviewable improvement.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: input
+    id: feature_id
+    attributes:
+      label: Related Fast OFM feature ID
+      placeholder: FOFM-...
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and reuse case
+    validations:
+      required: true
+  - type: textarea
+    id: boundary
+    attributes:
+      label: Proposed change boundary
+      description: Explain dependencies and how this can be reviewed separately.
+    validations:
+      required: true
+  - type: dropdown
+    id: maturity
+    attributes:
+      label: Evidence level
+      options:
+        - Proposal only
+        - Synthetic or offline evidence
+        - Prototype evidence
+    validations:
+      required: true

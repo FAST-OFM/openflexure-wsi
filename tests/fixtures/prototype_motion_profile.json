@@ -1,0 +1,106 @@
+{
+  "things": {
+    "stage": {
+      "kwargs": {
+        "hardware": {
+          "allow_motion": true,
+          "allow_operator_controls": true,
+          "manual_settle_ms": 0,
+          "ui_repeat_delay_ms": 20,
+          "post_command_push_wait_s": 0.3,
+          "axes": {
+            "x": {
+              "enabled": true,
+              "min_mm": -10,
+              "max_mm": 20,
+              "units_per_mm": 1000,
+              "direction_sign": 1,
+              "max_move_mm": 1,
+              "ui_step_mm": 0.05,
+              "speed_mm_s": 4,
+              "accel_mm_s2": 40,
+              "settle_ms": 0,
+              "move_timeout_s": 15
+            },
+            "y": {
+              "enabled": true,
+              "min_mm": -10,
+              "max_mm": 20,
+              "units_per_mm": 1000,
+              "direction_sign": 1,
+              "max_move_mm": 1,
+              "ui_step_mm": 0.05,
+              "speed_mm_s": 4,
+              "accel_mm_s2": 40,
+              "settle_ms": 0,
+              "move_timeout_s": 15
+            },
+            "z": {
+              "enabled": true,
+              "min_mm": -10,
+              "max_mm": 20,
+              "units_per_mm": 1000,
+              "direction_sign": 1,
+              "max_move_mm": 0.05,
+              "ui_step_mm": 0.005,
+              "speed_mm_s": 0.1,
+              "accel_mm_s2": 1,
+              "settle_ms": 0,
+              "move_timeout_s": 15
+            }
+          }
+        }
+      }
+    },
+    "snake_workflow": {
+      "kwargs": {
+        "default_settings": {
+          "overlap": 0.35,
+          "autofocus_dz": 50,
+          "autofocus_method": "openflexure",
+          "focus_strategy": "single_autofocus",
+          "stack_attempts": 1,
+          "stack_refocus_attempts": 1,
+          "stack_dz": 5,
+          "stack_min_images_to_test": 9,
+          "stack_images_to_save": 1,
+          "x_count": 3,
+          "y_count": 3
+        }
+      }
+    },
+    "raster_workflow": {
+      "kwargs": {
+        "default_settings": {
+          "overlap": 0.35,
+          "autofocus_dz": 50,
+          "autofocus_method": "openflexure",
+          "focus_strategy": "single_autofocus",
+          "stack_attempts": 1,
+          "stack_refocus_attempts": 1,
+          "stack_dz": 5,
+          "stack_min_images_to_test": 9,
+          "stack_images_to_save": 1,
+          "x_count": 3,
+          "y_count": 3
+        }
+      }
+    },
+    "fast_ofm_scan_workflow": {
+      "kwargs": {
+        "default_settings": {
+          "overlap": 0.35,
+          "autofocus_dz": 50,
+          "autofocus_method": "openflexure",
+          "focus_strategy": "single_autofocus",
+          "stack_attempts": 1,
+          "stack_refocus_attempts": 1,
+          "stack_dz": 5,
+          "stack_min_images_to_test": 9,
+          "stack_images_to_save": 1,
+          "max_range": 1000
+        }
+      }
+    }
+  }
+}
